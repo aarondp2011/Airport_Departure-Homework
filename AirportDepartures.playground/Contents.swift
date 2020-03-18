@@ -64,11 +64,11 @@ class DepartureBoard {
         for flight in flightList {
             switch flight.status {
             case .boarding:
-                print("Your flight is boarding, please head to terminal: (terminal) immediately. The doors are closing soon.")
+                print("Your flight is boarding, please head to terminal: \(String(describing: flight.terminal)) immediately. The doors are closing soon.")
             case .canceled:
-                print("We're sorry your flight to \(flight.destination) was canceled, here is a $500 voucher")
+                print("We're sorry your flight to \(flight.destination.city) was canceled, here is a $500 voucher")
             case .scheduled:
-                print("Your flight to \(flight.destination) is scheduled to depart at (time) from terminal: (terminal)")
+                print("Your flight to \(flight.destination.city) is scheduled to depart at \(String(describing: flight.departure)) from terminal: \(String(describing: flight.terminal))")
             case .delayed:
                 print("Your flight is delayed. It will arrive shortly.")
             case .enRoute:
